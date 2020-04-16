@@ -1,13 +1,13 @@
-document.onload = function(){
+window.onload = function(){
   if(localStorage.name != null && localStorage.email != null && localStorage.msg != null){
     document.getElementById('localoutput').innerHTML=
       "Name: "+localStorage.name+" Email: "+localStorage.email+" Message: "+localStorage.msg+". This information was saved from last time!";
   }
-  if(sessionStorage.name != null && sessionStorage.email != null && sessionStorage.msg != null){ //should always be false after refresh
+  if(sessionStorage.name !== undefined && sessionStorage.email !== undefined && sessionStorage.msg != undefined){ //should always be false after refresh
     document.getElementById('sessionoutput').innerHTML=
       "Name: "+sessionStorage.name+" Email: "+sessionStorage.email+" Message: "+sessionStorage.msg+". This information was saved from last time!";
   }
-  if(localStorage.name != null && sessionStorage.name == null){
+  if(localStorage.name != null && sessionStorage.name === undefined){
     document.getElementById('sessionoutput').innerHTML="Nothing to display here :( I didn't save your input.";
   }
 };
